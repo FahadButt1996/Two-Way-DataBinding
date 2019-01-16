@@ -10,12 +10,13 @@ import android.widget.EditText
 
 class EditTextBinder {
 
+
     companion object {
 
         @BindingAdapter(value = ["bindingValueAttrChanged"])
         @JvmStatic
         fun setValue(text: EditText, listener: InverseBindingListener) {
-            Log.d("setValue", "agya")
+            Log.d("setValue", "Set value fun")
             if (listener != null) {
                 text.addTextChangedListener(object : TextWatcher {
                     override fun afterTextChanged(s: Editable?) {
@@ -35,14 +36,14 @@ class EditTextBinder {
         @BindingAdapter("bindingValue")
         @JvmStatic
         fun setBindingValue(value: EditText, observableString: String) {
-            Log.d("setBindingValue", " here it is")
+            Log.d("setBindingValue", " setBindingValue function")
         }
 
 
         @InverseBindingAdapter(attribute = "bindingValue")
         @JvmStatic
         fun getBindindValue(value: EditText): String {
-            Log.d("getBindindValue", "agya")
+            Log.d("getBindindValue", "getBindindValue function")
             return value.text.toString()
         }
     }
